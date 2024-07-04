@@ -1,6 +1,7 @@
 # bus_buddy
 
 A new Flutter project.
+Provider is not in use right now and working on customs and common widgets.
 
 ## Getting Started
 
