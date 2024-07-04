@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import '../../utils/app_urls.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -429,32 +429,37 @@ class _MyHomePageState extends State<HomePage> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Card(
-                            color: AppColors.primary,
-                            child: Container(
-                              height: 140,
-                              width: 288,
-                              child: Column(
-                                children: [
-                                  Row(
-                                    children: [
-                                      const Padding(
-                                        padding: EdgeInsets.only(left: 10),
-                                        child: Text(
-                                          "Stay updated with \nreal-time bus locations. \n\nNever miss your stop!",
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w600,
-                                              color: Colors.white),
+                          GestureDetector(
+                            onTap: () {
+                              debugPrint('${AuthUrls.registration} ');
+                            },
+                            child: Card(
+                              color: AppColors.primary,
+                              child: SizedBox(
+                                height: 140,
+                                width: 288,
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Padding(
+                                          padding: EdgeInsets.only(left: 10),
+                                          child: Text(
+                                            "Stay updated with \nreal-time bus locations. \n\nNever miss your stop!",
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w600,
+                                                color: Colors.white),
+                                          ),
                                         ),
-                                      ),
-                                      Lottie.network(
-                                          "https://lottie.host/68b773b8-dbd9-4fd3-8676-eb26ade732ef/8lmoFYgxmf.json",
-                                          width: 120,
-                                          height: 135),
-                                    ],
-                                  ),
-                                ],
+                                        Lottie.network(
+                                            "https://lottie.host/68b773b8-dbd9-4fd3-8676-eb26ade732ef/8lmoFYgxmf.json",
+                                            width: 120,
+                                            height: 135),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),

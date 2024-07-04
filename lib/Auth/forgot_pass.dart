@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:bus_buddy/utils/app_urls.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -7,7 +8,6 @@ import 'package:http/http.dart' as http;
 import '../utils/appcolor.dart';
 import 'registration.dart';
 import 'verify_otp.dart';
-
 
 class ForgotPass extends StatefulWidget {
   // const ForgotPass({super.key});
@@ -30,8 +30,7 @@ class _ForgotPassState extends State<ForgotPass> {
     if (_formKey.currentState!.validate()) {
       try {
         var response = await http.post(
-          Uri.parse(
-              "https://busbooking.bestdevelopmentteam.com/Api/forgetpwd.php"),
+          Uri.parse(AuthUrls.forgotPassword),
           body: jsonEncode({"email": _mail.text}),
           headers: {'Content-Type': "application/json; charset=UTF-8"},
         );

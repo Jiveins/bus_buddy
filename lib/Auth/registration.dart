@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:bus_buddy/Auth/login.dart';
 import 'package:bus_buddy/Auth/verify_mail.dart';
+import 'package:bus_buddy/utils/app_urls.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:http/http.dart'as http;
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
 import '../utils/appcolor.dart';
@@ -56,8 +57,7 @@ class _RegistrationState extends State<Registration> {
         "password": _password.text,
       };
       var response = await http.post(
-        Uri.parse(
-            "https://busbooking.bestdevelopmentteam.com/Api/user_registration.php"),
+        Uri.parse(AuthUrls.registration),
         body: jsonEncode(mapdata),
         headers: {'Content-Type': "application/json; charset=UTF-8"},
       );

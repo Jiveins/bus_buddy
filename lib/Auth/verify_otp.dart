@@ -1,14 +1,14 @@
-
-
 import 'dart:convert';
 
 import 'package:bus_buddy/Auth/forgot_pass.dart';
 import 'package:bus_buddy/Auth/newpass.dart';
+import 'package:bus_buddy/utils/app_urls.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:pinput/pinput.dart';
 
 import '../utils/appcolor.dart';
+
 class VerifyOtp extends StatefulWidget {
   final String email;
 
@@ -23,9 +23,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
 
   void submitOtp() async {
     try {
-      var response = await http.post(
-          Uri.parse(
-              'https://busbooking.bestdevelopmentteam.com/Api/submitotp.php'),
+      var response = await http.post(Uri.parse(AuthUrls.otpForNewPassword),
           body: jsonEncode({
             'otp': _otp.text,
             'email': widget.email.toString(),

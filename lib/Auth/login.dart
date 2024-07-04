@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:bus_buddy/Auth/forgot_pass.dart';
 import 'package:bus_buddy/Auth/registration.dart';
+import 'package:bus_buddy/utils/app_urls.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -45,7 +46,7 @@ class _LogInState extends State<LogIn> {
         "password": _password.text,
       };
       var response = await http.post(
-        Uri.parse("https://busbooking.bestdevelopmentteam.com/Api/user_login"),
+        Uri.parse(AuthUrls.login),
         body: jsonEncode(data),
         headers: {'Content-Type': "application/json; charset=UTF-8"},
       );

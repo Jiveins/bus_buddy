@@ -1,6 +1,6 @@
-
 import 'dart:convert';
 
+import 'package:bus_buddy/utils/app_urls.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -25,8 +25,7 @@ class _NewPassState extends State<NewPass> {
 
   void confirmPass() async {
     try {
-      var response = await http.post(
-          Uri.parse("https://busbooking.bestdevelopmentteam.com/Api/newpwd"),
+      var response = await http.post(Uri.parse(AuthUrls.newPassword),
           body: jsonEncode(
               {'email': widget.email.toString(), "password": _pass.text}),
           headers: {'content-type': 'application/json; charset=UTF-8'});

@@ -5,7 +5,7 @@ import 'login.dart';
 
 class Done extends StatefulWidget {
   // const Done({super.key});
-  const Done({Key? key}) : super(key: key);
+  const Done({super.key});
 
   @override
   State<Done> createState() => _DoneState();
@@ -41,11 +41,11 @@ class _DoneState extends State<Done> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LogIn(),
+                    builder: (context) => const LogIn(),
                   )); // Submit the login
             },
             child: Padding(
-              padding: EdgeInsets.only(left: 15, right: 15),
+              padding: const EdgeInsets.only(left: 15, right: 15),
               child: Container(
                 margin: const EdgeInsets.only(top: 15),
                 // width: 250,
