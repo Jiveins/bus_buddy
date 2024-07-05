@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:bus_buddy/utils/app_urls.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -25,9 +26,7 @@ class _BottoBarState extends State<BottoBar> {
 
   int currentPageIndex = 0;
   displayName() async {
-    final response = await http.post(
-        Uri.parse(
-            "https://busbooking.bestdevelopmentteam.com/Api/displayuser.php"),
+    final response = await http.post(Uri.parse(AppUrls.profile),
         body: jsonEncode({
           "cid": widget.cId.toString(),
         }));
@@ -46,7 +45,7 @@ class _BottoBarState extends State<BottoBar> {
 
   @override
   Widget build(BuildContext context) {
-    print('CUSTOMER ID BOTTOMBAR:::${widget.cId}');
+    debugPrint('CUSTOMER ID BOTTOMBAR:::${widget.cId}');
     return Scaffold(
       body: IndexedStack(
         index: currentPageIndex,

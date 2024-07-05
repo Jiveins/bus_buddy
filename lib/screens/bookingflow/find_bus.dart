@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:bus_buddy/utils/app_urls.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import '../../utils/global_function.dart';
@@ -33,8 +34,7 @@ class _FindBusState extends State<FindBus> {
     debugPrint(widget.destination);
     debugPrint(widget.datecontroller);
 
-    var res = await http.post(
-        Uri.parse('https://busbooking.bestdevelopmentteam.com/Api/bussrch.php'),
+    var res = await http.post(Uri.parse(AppUrls.findBus),
         body: jsonEncode({
           "start": widget.source.toString(),
           "end": widget.destination.toString(),

@@ -10,4 +10,11 @@ class AuthUrls {
 
 class AppUrls {
   static String baseUrl = 'https://busbooking.bestdevelopmentteam.com/Api';
+  static String findBus = '$baseUrl/bussrch';
+  static String getStops = '$baseUrl/stopsapi';
+  static String availableSeats = '$baseUrl/setas';
+  static String addPassengers = '$baseUrl/passenger';
+  static String profile = '$baseUrl/displayuser';
+  static String ticketHistory = '$baseUrl/userhistory';
+  static String ticketConfirm = '$baseUrl/tickit';
 }

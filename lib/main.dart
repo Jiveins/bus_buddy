@@ -1,6 +1,8 @@
+import 'package:bus_buddy/Provider/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'dart:async';
 import 'screens/splash_screen.dart';
 
@@ -13,11 +15,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(fontFamily: "Ubuntu"),
-      title: 'BusBuddy',
-      debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: "BusBuddy"),
+    return ChangeNotifierProvider(
+      create: (context) => AuthProvider(),
+
+      child: MaterialApp(
+        theme: ThemeData(fontFamily: "Ubuntu"),
+        title: 'BusBuddy',
+        debugShowCheckedModeBanner: false,
+        home: const MyHomePage(title: "BusBuddy"),
+      ),
     );
   }
 }

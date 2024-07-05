@@ -146,7 +146,7 @@ class _ProfileState extends State<Profile> {
   void logout(BuildContext context) async {
     // await widget.prefs.setBool('isLoggedIn', false); // Clear login status
     Navigator.of(context).pushReplacement(MaterialPageRoute(
-      builder: (context) => LogIn(),
+      builder: (context) => const LogIn(),
     ));
   }
 
@@ -177,7 +177,7 @@ class _ProfileState extends State<Profile> {
             onPressed: () {
               _deleteImage();
             },
-            icon: Icon(
+            icon: const Icon(
               CupertinoIcons.delete_solid,
               color: Colors.white,
               size: 25,
@@ -193,7 +193,7 @@ class _ProfileState extends State<Profile> {
               height: 80,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(8),
                   bottomRight: Radius.circular(8),
                 ),
@@ -230,34 +230,34 @@ class _ProfileState extends State<Profile> {
                   Card(
                     color: AppColors.secondary,
                     child: ListTile(
-                      title: Text(
+                      title: const Text(
                         "Email",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w500),
                       ),
                       subtitle: Text(
                         "${GlobalFunction.userProfile.email.toString()}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 15, fontWeight: FontWeight.w400),
                       ),
-                      trailing: Icon(CupertinoIcons.mail),
+                      trailing: const Icon(CupertinoIcons.mail),
                     ),
                   ),
                   const SizedBox(height: 5),
                   Card(
                     color: AppColors.secondary,
                     child: ListTile(
-                      title: Text(
+                      title: const Text(
                         "Phone Number",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w500),
                       ),
                       subtitle: Text(
                         "${GlobalFunction.userProfile.mobile}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 15, fontWeight: FontWeight.w400),
                       ),
-                      trailing: Icon(CupertinoIcons.phone),
+                      trailing: const Icon(CupertinoIcons.phone),
                     ),
                   ),
                   const SizedBox(height: 5),
@@ -265,12 +265,12 @@ class _ProfileState extends State<Profile> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Setting()),
+                        MaterialPageRoute(builder: (context) => const Setting()),
                       );
                     },
                     child: Card(
                       color: AppColors.secondary,
-                      child: ListTile(
+                      child: const ListTile(
                         title: Text(
                           "Setting",
                           style: TextStyle(
@@ -287,7 +287,7 @@ class _ProfileState extends State<Profile> {
                     },
                     child: Card(
                       color: AppColors.secondary,
-                      child: ListTile(
+                      child: const ListTile(
                         title: Text(
                           "Log Out",
                           style: TextStyle(

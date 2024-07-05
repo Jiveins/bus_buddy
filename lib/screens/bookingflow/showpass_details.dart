@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:bus_buddy/utils/app_urls.dart';
 import 'package:bus_buddy/utils/global_function.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -53,9 +54,7 @@ class _ShowPassengerState extends State<ShowPassenger> {
     debugPrint('ADDED DATA________$body');
 
     try {
-      var res = await http.post(
-          Uri.parse(
-              'https://busbooking.bestdevelopmentteam.com/Api/passenger.php'),
+      var res = await http.post(Uri.parse(AppUrls.addPassengers),
           body: jsonEncode(body),
           headers: {'Content-Type': 'application/json'});
       if (res.statusCode == 200 || res.statusCode == 201) {

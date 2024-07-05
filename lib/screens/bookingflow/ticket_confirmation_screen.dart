@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:bus_buddy/utils/app_urls.dart';
+
 import '../../utils/global_function.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +22,7 @@ class ConfirmTickets extends StatefulWidget {
 
 class _TicketsState extends State<ConfirmTickets> {
   Future<List<ShowTicket>> displayTicket() async {
-    var res = await http.post(
-        Uri.parse('https://busbooking.bestdevelopmentteam.com/Api/tickit.php'),
+    var res = await http.post(Uri.parse(AppUrls.ticketConfirm),
         body: jsonEncode({
           "ticketno": widget.ticketNo.toString(),
         }),

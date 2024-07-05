@@ -48,7 +48,7 @@ class _MyHomePageState extends State<HomePage> {
 
   void _stop() async {
     var response = await http.get(
-      Uri.parse("https://busbooking.bestdevelopmentteam.com/Api/stopsapi.php"),
+      Uri.parse(AppUrls.getStops),
     );
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body) as List;

@@ -14,34 +14,36 @@ import '../utils/appcolor.dart';
 class AuthProvider with ChangeNotifier {
   bool _loading = false;
   bool get loading => _loading;
+  TextEditingController nameController = TextEditingController();
+  final TextEditingController numberController = TextEditingController();
+  final TextEditingController mailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   setLoading(bool value) {
     _loading = value;
     notifyListeners();
   }
 
-  final TextEditingController _name = TextEditingController();
-  final TextEditingController _number = TextEditingController();
-  final TextEditingController _mail = TextEditingController();
-  final TextEditingController _password = TextEditingController();
-  final TextEditingController _confirmPassword = TextEditingController();
   String? cId;
   @override
   void dispose() {
-    _name.dispose();
-    _mail.dispose();
-    _number.dispose();
-    _password.dispose();
-    _confirmPassword.dispose();
+    nameController.dispose();
+    mailController.dispose();
+    numberController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
     super.dispose();
   }
 
   loginSubmit(BuildContext context) async {
     try {
       Map data = {
-        "email": _mail.text,
-        "password": _password.text,
+        "email": mailController.text,
+        "password": passwordController.text,
       };
+      print('Body:::${data}');
       var response = await http.post(
         Uri.parse(AuthUrls.login),
         body: jsonEncode(data),
@@ -111,12 +113,12 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
-  void registerUser(BuildContext context) async {
-    if (_name.text.isEmpty ||
-        _number.text.isEmpty ||
-        _mail.text.isEmpty ||
-        _password.text.isEmpty ||
-        _confirmPassword.text.isEmpty) {
+   registerUser(BuildContext context) async {
+    if (nameController.text.isEmpty ||
+        numberController.text.isEmpty ||
+        mailController.text.isEmpty ||
+        passwordController.text.isEmpty ||
+        confirmPasswordController.text.isEmpty) {
       // Display snackbar if any field is empty
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -127,10 +129,10 @@ class AuthProvider with ChangeNotifier {
     }
     try {
       Map mapdata = {
-        "name": _name.text,
-        "mobile_no": _number.text,
-        "email": _mail.text,
-        "password": _password.text,
+        "name": nameController.text,
+        "mobile_no": numberController.text,
+        "email": mailController.text,
+        "password": passwordController.text,
       };
       var response = await http.post(
         Uri.parse(AuthUrls.registration),
@@ -155,7 +157,7 @@ class AuthProvider with ChangeNotifier {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => VerifyMail(email: _mail.text),
+            builder: (context) => VerifyMail(email: mailController.text),
           ),
         );
       } else if (responseBody['STATUS'] == false) {
